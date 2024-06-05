@@ -1,20 +1,27 @@
 # Dell T630 IPMI Fan Control Script
-Based on https://github.com/Jono-Moss/R710-IPMI-Fan-Speed-Script/tree/main | https://www.youtube.com/watch?v=3yJYq0PEhTw
+4-level fan control script for Dell PowerEdge T630 with a debian based OS. 
 
-Difference to the original version: Adapted for Dell T630 with 2 fans and added additional fan levels.
+Tested on Dell T630 with 2 fans, BIOS version 2.19.0 and iDrac version FW 2.86.86.86.
 
-Tested on BIOS version 2.19.0 and iDrac version FW 2.86.86.86.
+> [!CAUTION]
+> This script has been optimized for my use personal setup and should be customized before used on other systems. Please read through the README before using it!
+
+> [!CAUTION]
+> Use script on your own risk, no guarantee this will work as excpected. Always test before leaving your system unattended with the script running!
+
+## Why you may need this
+If you would like to use PCI cards, which are not "designed or qualified" by Dell, and want your fan speeds to get lower than 75% speed. For some reason Dell has decided to pin the speed at this minimum once certain conditions are met (example: unmatched GPU). They claim that many of these "unqualified" cards do not have active thermal sensor monitoring or standard sensor reading topologies and claim that due to that they are not able to fine tune for such cards.
+
+## Prerequisits
+1) iDrac is configured with a static IP.
+2) If root is not being used, an additional user needs to be created with the proepr priviliges.
+3) IPMI over LAN is enabled.
+4) IPMI Lan Privilage is set to Admin.
+5) Serial over LAN is enabled.
+6) On your host ipmitool is installed (apt-get update && apt-get install ipmitool)
 
 ## How to use
-1) In order to be using the following commands or script on debian based systems, install ipmitool (make sure to append sudo if not logged in as root): sudo apt-get update && sudo apt-get install ipmitool
-2) Copy the script and make it an executable file.
-3) Create a cron job to run at least every minute.\
-   Example cron job: */1 * * * * /bin/bash /root/fancontrol/setspeed.sh > /dev/null 2>&1
-   
-> [!TIP]
-> Not neccesairy to make it work, but when using the script, make sure to make it only readable by root or whoever the owner would be, as the script will contain the credentials of your IPMI user! 
-
-Before using the script, check whether you have the same sensors: 
+Before using the script, check which sensors are available: 
 <pre>ipmitool -I lanplus -H iDracIP -U iDracUser -P iDracPW -y iDracEncryptionKey sdr type temperature</pre>
 You will see something like the following, where in this case, the Inlet Temp is the System Board Inlet Temp and the two Temp values are the 2 CPU package temparatures:
 <pre>
@@ -22,7 +29,22 @@ Inlet Temp       | 04h | ok  |  7.1 | 25 degrees C
 Temp             | 0Eh | ok  |  3.1 | 31 degrees C
 Temp             | 0Fh | ok  |  3.2 | 31 degrees C
 </pre>
+The sensors are important, as otherwise you may monitor the wrong value and your system oerheats or still will have its fans be running on high rpm. Make sure to figur eout which sensor is for what. Note down the Sensor name, as you will need it later.
+
+1) Save the script in a folder and make it an executable file.
+2) Fill out user, password, host address and encryption key values.
+3) Adjsut fan speed and temparture treshold values to your likings (so the system doesn't overheat, but with comfortable fan speeds).
+4) 
+5) Create a cron job to run at least every minute. Please keep in mind that depending on your system you may have to adjust that job.\
+   Example cron job: */1 * * * * /bin/bash /root/fancontrol/setspeed.sh > /dev/null 2>&1
+   
+> [!TIP]
+> Not neccesairy to make it work, but when using the script, make sure to make it only readable by root or whoever the owner would be, as the script will contain the credentials of your IPMI user!
 
 
-> [!CAUTION]
-> Use script on your own risk, no guarantee this will work as excpected. Always test before leaving your system unattended with the script running!
+
+
+## Sources
+- https://community.spiceworks.com/t/dell-poweredge-server-r7xx-series-fan-speed-with-gpu/350434/44
+- https://github.com/Jono-Moss/R710-IPMI-Fan-Speed-Script/tree/main
+- https://www.youtube.com/watch?v=3yJYq0PEhTw
