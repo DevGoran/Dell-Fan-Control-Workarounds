@@ -14,14 +14,14 @@ Tested on BIOS version 2.19.0 and iDrac version FW 2.86.86.86.
 > [!TIP]
 > Not neccesairy to make it work, but when using the script, make sure to make it only readable by root or whoever the owner would be, as the script will contain the credentials of your IPMI user! 
 
-Before using the script, check whether you have the same sensors: ipmitool -I lanplus -H iDracIP -U iDracUser -P iDracPW -y iDracEncryptionKey sdr type temperature
-You will see something like the following:
+Before using the script, check whether you have the same sensors: 
+<pre>ipmitool -I lanplus -H iDracIP -U iDracUser -P iDracPW -y iDracEncryptionKey sdr type temperature</pre>
+You will see something like the following, where in this case, the Inlet Temp is the System Board Inlet Temp and the two Temp values are the 2 CPU package temparatures:
 <pre>
 Inlet Temp       | 04h | ok  |  7.1 | 25 degrees C
 Temp             | 0Eh | ok  |  3.1 | 31 degrees C
 Temp             | 0Fh | ok  |  3.2 | 31 degrees C
 </pre>
-In this case, the Inlet Temp is the System Board Inlet Temp and the two Temp values are the 2 CPU package temparatures.
 
 
 > [!CAUTION]
