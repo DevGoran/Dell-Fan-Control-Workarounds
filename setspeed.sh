@@ -2,11 +2,11 @@
 
 # IPMI IP address
 IPMIHOST=yourIPMIhostIP
-# IPMI Username
-IPMIUSER=yourIPMIuSer
-# IPMI Password
-IPMIPW=y0urPassw0rd
-# Your IPMI Encryption Key (40x 0's are the default value). Value is set in iDrac settings.
+# IPMI Username. root is the default iDrac user.
+IPMIUSER=root
+# IPMI Password. calvin is the default iDrac password.
+IPMIPW=calvin
+# Your IPMI Encryption Key. 40x 0's are the default encryption key value.
 IPMIEK=0000000000000000000000000000000000000000
 # Fan Speeds / utilisation in percentage
 FANSPEED1=20
@@ -16,10 +16,12 @@ FANSPEED3=45
 TEMP1=40
 TEMP2=50
 TEMP3=60
+# Temparature sensor to monitor. Leave the quotation and only replace value inbetween if neccesairy.
+SENSOR='Temp'
 
 # This variable sends an IPMI command to get the temperature and outputs it as two digits. The value 'Temp' in this case is the CPU temparature. See README.md for more details.
 # Side note, if you are running ipmitool on the system you are controlling, you don't need to specify -H,-U,-P - from the OS installed on the host, ipmitool is assumed permitted. You only need host/user/pass for remote access. 
-TEMP=$(ipmitool -I lanplus -H $IPMIHOST -U $IPMIUSER -P $IPMIPW -y $IPMIEK sdr type temperature | grep 'Temp' | grep degrees | grep -Po '\d{2}' | tail -1)
+TEMP=$(ipmitool -I lanplus -H $IPMIHOST -U $IPMIUSER -P $IPMIPW -y $IPMIEK sdr type temperature | grep $SENSOR | grep degrees | grep -Po '\d{2}' | tail -1)
 
 # Convert fan speeds to hex
 SPEEDHEX1=$( printf "%x" $FANSPEED1 )
