@@ -3,7 +3,7 @@
 > Tested on Dell T630 with 2 fans, BIOS version 2.19.0 and iDrac version FW 2.86.86.86.
 
 > [!CAUTION]
-> This script has been optimized for my use personal setup and should be customized before used on other systems. Please read through the README before using it!
+> This script has been optimized for my personal setup and should be customized before being used on other systems.
 
 > [!CAUTION]
 > Use script on your own risk, no guarantee this will work as excpected. Always test before leaving your system unattended with the script running!
@@ -20,15 +20,15 @@ If you would like to use PCI cards, which are not "designed or qualified" by Del
 6) On your host ipmitool is installed (apt-get update && apt-get install ipmitool)
 
 ## How to use
-Before using the script, check which sensors are available: 
+Before using the script, check which sensors are available on your system: 
 <pre>ipmitool -I lanplus -H iDracIP -U iDracUser -P iDracPW -y iDracEncryptionKey sdr type temperature</pre>
-You will see something like the following, where in this case, the Inlet Temp is the System Board Inlet Temp and the two Temp values are the 2 CPU package temparatures:
+You will see something similar to the following output. In this case, the Inlet Temp is the System Board Inlet Temp and the two Temp values are the 2 CPU package temparatures:
 <pre>
 Inlet Temp       | 04h | ok  |  7.1 | 25 degrees C
 Temp             | 0Eh | ok  |  3.1 | 31 degrees C
 Temp             | 0Fh | ok  |  3.2 | 31 degrees C
 </pre>
-The sensors are important, as otherwise you may monitor the wrong value and your system oerheats or still will have its fans be running on high rpm. Make sure to figur eout which sensor is for what. Note down the Sensor name, as you will need it later.
+The sensor choice is important, as otherwise you may monitor the wrong value and your system oerheats or still will have its fans be running at high rpms. Make sure to figure out which sensor is for what. Note down the Sensor name, as you will need it later.
 
 1) Save the script in a folder and make it an executable file.
 2) Fill out user, password, host address and encryption key values.
