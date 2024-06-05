@@ -1,7 +1,6 @@
 # Dell T630 IPMI Fan Control Script
-4-level fan control script for Dell PowerEdge T630 with a debian based OS. 
-
-Tested on Dell T630 with 2 fans, BIOS version 2.19.0 and iDrac version FW 2.86.86.86.
+> [!NOTE]
+> Tested on Dell T630 with 2 fans, BIOS version 2.19.0 and iDrac version FW 2.86.86.86.
 
 > [!CAUTION]
 > This script has been optimized for my use personal setup and should be customized before used on other systems. Please read through the README before using it!
