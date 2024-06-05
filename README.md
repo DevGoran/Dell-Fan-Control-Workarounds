@@ -1,4 +1,4 @@
-# Dell-T630-IPMI-Fan-Control-Script
+# Dell T630 IPMI Fan Control Script
 Based on https://github.com/Jono-Moss/R710-IPMI-Fan-Speed-Script/tree/main | https://www.youtube.com/watch?v=3yJYq0PEhTw
 
 Difference to the original version: Adapted for Dell T630 with 2 fans and added additional fan levels.
