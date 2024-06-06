@@ -28,7 +28,7 @@ SPEEDHEX1=$( printf "%x" $FANSPEED1 )
 SPEEDHEX2=$( printf "%x" $FANSPEED2 )
 SPEEDHEX3=$( printf "%x" $FANSPEED3 )
 
-# Check whether $TEMP is equal or greater than $TEMP# and set fan speed based on temperature
+# Check whether $TEMP is equal or greater than $TEMP# and set fan speed based on temperature. Additionally, add info to log file.
 if [[ $TEMP -ge $TEMP3 ]]; then
   printf "Warning: Temperature is too high! Activating dynamic fan control! ($TEMP C)\n" | systemd-cat -t T630-IPMI-TEMP
   echo "Warning: Temperature is too high! Activating dynamic fan control! ($TEMP C)"
