@@ -13,7 +13,7 @@ If you would like to use PCI cards, which are not "designed or qualified" by Del
 
 ## Prerequisits
 1) iDrac is configured with a static IP.
-2) If root is not being used, an additional user needs to be created with the proepr priviliges.
+2) If root is not being used, an additional user needs to be created with the properr priviliges.
 3) IPMI over LAN is enabled.
 4) IPMI Lan Privilage is set to Admin.
 5) Serial over LAN is enabled.
