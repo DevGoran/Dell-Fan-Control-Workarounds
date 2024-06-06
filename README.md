@@ -9,7 +9,7 @@
 > Use script on your own risk, no guarantee this will work as excpected. Always test before leaving your system unattended with the script running!
 
 ## Why you may need this
-If you would like to use PCI cards, which are not "designed or qualified" by Dell, and want your fan speeds to get lower than 75% speed. For some reason Dell has decided to pin the speed at this minimum once certain conditions are met (example: unmatched GPU). They claim that many of these "unqualified" cards do not have active thermal sensor monitoring or standard sensor reading topologies and claim that due to that they are not able to fine tune for such cards.
+If you would like to use PCI cards, which are not "designed or qualified" by Dell, and want your fan speeds to get lower than 75% speed. For some reason Dell has decided to pin the speed at this minimum once certain conditions are met (example: unmatched GPU). They claim that many of these "unqualified" cards do not have active thermal sensor monitoring or standard sensor reading topologies and claim that due to that they are not able to fine tune the fans for such cards.
 
 ## Prerequisits
 1) iDrac is configured with a static IP.
