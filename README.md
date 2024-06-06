@@ -32,7 +32,7 @@ The sensor choice is important, as otherwise you may monitor the wrong value and
 
 1) Save the script in a folder and make it an executable file.
 2) Fill out user, password, host address and encryption key values.
-3) Adjsut fan speed and temparture treshold values to your likings (so the system doesn't overheat, but with comfortable fan speeds).
+3) Adjsut fan speed and temparture treshold values to your likings (so the system doesn't overheat, but with comfortable fan speeds). Keep in mind that those tresholds might be different in summer than winter time.
 4) Adjust the sensor value, which is the temparature sensor value from before. Use the exact name like in the output.
 5) Save the script.
 6) Create a cron job to run at least every minute. Please keep in mind that depending on your system you may have to adjust that job.\
