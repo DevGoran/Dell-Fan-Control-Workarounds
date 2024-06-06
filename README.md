@@ -1,4 +1,4 @@
-# Dell T630 IPMI Fan Control
+# Dell T630 Fan Control
 
 ## Introduction
 The systems default fan behavior for 3rd party cards is assuming the highest thermal load and therefore increases the fan speed significantly. There are 2 ways to deal with this:
