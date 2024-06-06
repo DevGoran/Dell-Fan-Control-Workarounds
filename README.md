@@ -34,13 +34,16 @@ The sensor choice is important, as otherwise you may monitor the wrong value and
 2) Fill out user, password, host address and encryption key values.
 3) Adjsut fan speed and temparture treshold values to your likings (so the system doesn't overheat, but with comfortable fan speeds).
 4) Adjust the sensor value, which is the temparature sensor value from before. Use the exact name like in the output.
-5) Create a cron job to run at least every minute. Please keep in mind that depending on your system you may have to adjust that job.\
+5) Save the script.
+6) Create a cron job to run at least every minute. Please keep in mind that depending on your system you may have to adjust that job.\
    Example cron job: */1 * * * * /bin/bash /root/fancontrol/setspeed.sh > /dev/null 2>&1
-   
+
+
+> [!TIP]
+> Keep " ipmitool -I lanplus -H 192.168.168.168 -U root -P calvin -y 0000000000000000000000000000000000000000 raw 0x30 0x30 0x01 0x01" ready (with our credentials instead of the demo ones here). In case the script doesn't work properly you can quickly revert back to the original dynamic fan control.
+
 > [!TIP]
 > Not neccesairy to make it work, but when using the script, make sure to make it only readable by root or whoever the owner would be, as the script will contain the credentials of your IPMI user!
-
-
 
 
 ## Sources
