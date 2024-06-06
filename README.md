@@ -20,8 +20,8 @@ If you would like to use PCI cards, which are not "designed or qualified" by Del
 6) On your host ipmitool is installed (apt-get update && apt-get install ipmitool)
 
 ## How to use
-Before using the script, check which sensors are available on your system: 
-<pre>ipmitool -I lanplus -H iDracIP -U iDracUser -P iDracPW -y iDracEncryptionKey sdr type temperature</pre>
+Before using the script, check which sensors are available on your system (make sure to replace IP, credentials and encryption key): 
+<pre>ipmitool -I lanplus -H 192.168.168.168 -U root -P calvin -y 0000000000000000000000000000000000000000 sdr type temperature</pre>
 You will see something similar to the following output. In this case, the Inlet Temp is the System Board Inlet Temp and the two Temp values are the 2 CPU package temparatures:
 <pre>
 Inlet Temp       | 04h | ok  |  7.1 | 25 degrees C
