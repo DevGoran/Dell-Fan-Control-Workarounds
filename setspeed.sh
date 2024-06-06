@@ -37,19 +37,19 @@ if [[ $TEMP -ge $TEMP3 ]]; then
 elif [[ $TEMP -ge $TEMP2 ]]; then
   printf "Temperature is high ($TEMP C), setting fan speed to $FANSPEED3%%\n" | systemd-cat -t T630-IPMI-TEMP
   echo "Temperature is high ($TEMP C), setting fan speed to $FANSPEED3%%"
-  # Set fans to manual mode andthen  apply speed 3
+  # Set fans to manual mode and then  apply speed 3.
   ipmitool -I lanplus -H $IPMIHOST -U $IPMIUSER -P $IPMIPW -y $IPMIEK raw 0x30 0x30 0x01 0x00
   ipmitool -I lanplus -H $IPMIHOST -U $IPMIUSER -P $IPMIPW -y $IPMIEK raw 0x30 0x30 0x02 0xff 0x$SPEEDHEX3
 elif [[ $TEMP -ge $TEMP1 ]]; then
   printf "Temperature is moderate ($TEMP C), setting fan speed to $FANSPEED2%%\n" | systemd-cat -t T630-IPMI-TEMP
   echo "Temperature is moderate ($TEMP C), setting fan speed to $FANSPEED2%%"
-  # Set fans to manual mode and then apply speed 2
+  # Set fans to manual mode and then apply speed 2.
   ipmitool -I lanplus -H $IPMIHOST -U $IPMIUSER -P $IPMIPW -y $IPMIEK raw 0x30 0x30 0x01 0x00
   ipmitool -I lanplus -H $IPMIHOST -U $IPMIUSER -P $IPMIPW -y $IPMIEK raw 0x30 0x30 0x02 0xff 0x$SPEEDHEX2
 else
   printf "Temperature is low ($TEMP C), setting fan speed to $FANSPEED1%%\n" | systemd-cat -t T630-IPMI-TEMP
   echo "Temperature is low ($TEMP C), setting fan speed to $FANSPEED1%%"
-  # Set fans to manual mode and then apply speed 1
+  # Set fans to manual mode and then apply speed 1.
   ipmitool -I lanplus -H $IPMIHOST -U $IPMIUSER -P $IPMIPW -y $IPMIEK raw 0x30 0x30 0x01 0x00
   ipmitool -I lanplus -H $IPMIHOST -U $IPMIUSER -P $IPMIPW -y $IPMIEK raw 0x30 0x30 0x02 0xff 0x$SPEEDHEX1
 fi
