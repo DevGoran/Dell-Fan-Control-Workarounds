@@ -28,12 +28,12 @@ Inlet Temp       | 04h | ok  |  7.1 | 25 degrees C
 Temp             | 0Eh | ok  |  3.1 | 31 degrees C
 Temp             | 0Fh | ok  |  3.2 | 31 degrees C
 </pre>
-The sensor choice is important, as otherwise you may monitor the wrong value and your system oerheats or still will have its fans be running at high rpms. Make sure to figure out which sensor is for what. Note down the Sensor name, as you will need it later.
+The sensor choice is important, as otherwise you may monitor the wrong value and your system overheats or still will have its fans be spinning at high rpms. Make sure to figure out which sensor is for what. Note down the sensor name, as you will need it later.
 
 1) Save the script in a folder and make it an executable file.
 2) Fill out user, password, host address and encryption key values.
 3) Adjsut fan speed and temparture treshold values to your likings (so the system doesn't overheat, but with comfortable fan speeds).
-4) 
+4) Adjust the sensor value, which is the temparature sensor value from before. Use the exact name like in the output.
 5) Create a cron job to run at least every minute. Please keep in mind that depending on your system you may have to adjust that job.\
    Example cron job: */1 * * * * /bin/bash /root/fancontrol/setspeed.sh > /dev/null 2>&1
    
