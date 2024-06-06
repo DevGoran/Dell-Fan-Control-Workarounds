@@ -1,22 +1,22 @@
 #!/bin/bash
 
-# IPMI IP address
-IPMIHOST=yourIPMIhostIP
-# IPMI Username. root is the default iDrac user.
+# IPMI IP address. Adjust value for your system.
+IPMIHOST=192.168.168.168
+# IPMI Username. root is the default iDrac user. Adjust value for your system.
 IPMIUSER=root
-# IPMI Password. calvin is the default iDrac password.
+# IPMI Password. calvin is the default iDrac password. Adjust value for your system.
 IPMIPW=calvin
-# Your IPMI Encryption Key. 40x 0's are the default encryption key value.
+# Your IPMI Encryption Key. 40x 0's are the default encryption key value. Adjust value for your system.
 IPMIEK=0000000000000000000000000000000000000000
-# Fan Speeds / utilisation in percentage
+# Fan Speeds / utilisation in percentage. Adjust value for your system.
 FANSPEED1=20
 FANSPEED2=35
 FANSPEED3=45
-# Temperature thresholds in Celsius
+# Temperature thresholds in Celsius. Adjust value for your system.
 TEMP1=40
 TEMP2=50
 TEMP3=60
-# Temparature sensor to monitor. Leave the quotation and only replace value inbetween if neccesairy.
+# Temparature sensor to monitor. Leave the quotation and only replace value inbetween if neccesairy. Adjust value for your system.
 SENSOR='Temp'
 
 # This variable sends an IPMI command to get the temperature and outputs it as two digits. The value 'Temp' in this case is the CPU temparature. See README.md for more details.
