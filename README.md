@@ -40,7 +40,7 @@ The sensor choice is important, as otherwise you may monitor the wrong value and
 
 
 > [!TIP]
-> Keep " ipmitool -I lanplus -H 192.168.168.168 -U root -P calvin -y 0000000000000000000000000000000000000000 raw 0x30 0x30 0x01 0x01" ready (with our credentials instead of the demo ones here). In case the script doesn't work properly you can quickly revert back to the original dynamic fan control.
+> Keep " ipmitool -I lanplus -H 192.168.168.168 -U root -P calvin -y 0000000000000000000000000000000000000000 raw 0x30 0x30 0x01 0x01" ready (with your credentials instead of the demo ones here). In case the script doesn't work properly you can quickly revert back to the original dynamic fan control.
 
 > [!TIP]
 > Not neccesairy to make it work, but when using the script, make sure to make it only readable by root or whoever the owner would be, as the script will contain the credentials of your IPMI user!
