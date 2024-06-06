@@ -1,4 +1,13 @@
 # Dell T630 IPMI Fan Control Script
+
+## Introduction
+The systems default fan behavior for 3rd party cards is assuming the highest thermal load and therefore increases the fan speed significantly. There are 2 ways to deal with this:
+| # | Workaround | $${\color{green}PROS}$$ | $${\color{red}CONS}$$ |
+|---|------------|------|------|
+| 1 | Disable 3rd party card behaviour | You do not have to use any scripts or similar. The system will still hanlde the fans dynamically. | Undocumented feature and therefore not supported by Dell. This may damage your system. The fans may still spin at  higher rpms (let's say 35% instead of 20%). |
+| 2 | Use a fan speed control script   | You can set the fan speeds yourself with the script and therefore can have a quieter system than with the dynamic fan control. | Undocumented feature and therefore not supported by Dell. This may damage your system. You have to make sure to use the proper values in the script, otherwise your system may overheat. You're dependend on not jsut the script, but also the cron job.     |
+
+## Disclaimers
 > [!NOTE]
 > Tested on Dell T630 with 2 fans, BIOS version 2.19.0 and iDrac version FW 2.86.86.86.
 
@@ -8,18 +17,14 @@
 > [!CAUTION]
 > Use script on your own risk, no guarantee this will work as excpected. Always test before leaving your system unattended with the script running!
 
-## Why you may need this
-If you would like to use PCI cards, which are not "designed or qualified" by Dell, and want your fan speeds to get lower than 75% speed. For some reason Dell has decided to pin the speed at this minimum once certain conditions are met (example: unmatched GPU). They claim that many of these "unqualified" cards do not have active thermal sensor monitoring or standard sensor reading topologies and claim that due to that they are not able to fine tune the fans for such cards.
-
 ## Prerequisits
 1) iDrac is configured with a static IP.
 2) If root is not being used, an additional user needs to be created with the properr priviliges.
 3) IPMI over LAN is enabled.
 4) IPMI Lan Privilage is set to Admin.
-5) Serial over LAN is enabled.
 6) On your host ipmitool is installed (apt-get update && apt-get install ipmitool)
 
-## How to use
+## How to use the fan speed script
 Before using the script, check which sensors are available on your system (make sure to replace IP, credentials and encryption key): 
 <pre>ipmitool -I lanplus -H 192.168.168.168 -U root -P calvin -y 0000000000000000000000000000000000000000 sdr type temperature</pre>
 You will see something similar to the following output. In this case, the Inlet Temp is the System Board Inlet Temp and the two Temp values are the 2 CPU package temparatures:
@@ -45,8 +50,32 @@ The sensor choice is important, as otherwise you may monitor the wrong value and
 > [!TIP]
 > Not neccesairy to make it work, but when using the script, make sure to make it only readable by root or whoever the owner would be, as the script will contain the credentials of your IPMI user!
 
+## Disabling the default fan behaviour
+Check if the default fan bevaiour is enabled or disabled by using following raw command:
+<pre>ipmitool -I lanplus -H 192.168.168.168 -U root -P calvin -y 0000000000000000000000000000000000000000 raw 0x30 0xce 0x01 0x16 0x05 0x00 0x00 0x00</pre>
+The response will tell you whether it is enabled or disabled.
+<pre>
+Disabled response: 16 05 00 00 00 05 00 01 00 00
+Enabled response:  ﻿16 05 00 00 00 05 00 00 00 00
+</pre>
+
+We can then enable or disable this behaviour with follwoing commands:
+
+> [!CAUTION]
+> This may damage your system!
+
+Disable: 
+```
+ipmitool -I lanplus -H 192.168.168.168 -U root -P calvin -y 0000000000000000000000000000000000000000 raw 0x30 0xce 0x00 0x16 0x05 0x00 0x00 0x00 0x05 0x00 0x01 0x00 0x00
+```
+Enable:
+```
+ipmitool -I lanplus -H 192.168.168.168 -U root -P calvin -y 0000000000000000000000000000000000000000 raw 0x30 0xce 0x00 0x16 0x05 0x00 0x00 0x00 0x05 0x00 0x00 0x00 0x00
+```
+
 
 ## Sources
 - https://community.spiceworks.com/t/dell-poweredge-server-r7xx-series-fan-speed-with-gpu/350434/44
 - https://github.com/Jono-Moss/R710-IPMI-Fan-Speed-Script/tree/main
 - https://www.youtube.com/watch?v=3yJYq0PEhTw
+- https://www.dell.com/community/en/conversations/poweredge-hardware-general/t130-fan-speed-algorithm/647f6905f4ccf8a8de60910d
