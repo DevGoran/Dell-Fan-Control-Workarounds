@@ -94,10 +94,10 @@ The sensor choice is important, as otherwise you may monitor the wrong value and
 > Please keep in mind that depending on your system you may have to adjust the frequency of the job to update the fans faster. A too low value will eventually lead to overheating.
 
 > [!TIP]
-> Keep " ipmitool -I lanplus -H 192.168.168.168 -U root -P calvin -y 0000000000000000000000000000000000000000 raw 0x30 0x30 0x01 0x01" ready. In case the script doesn't work properly you can quickly revert back to the original dynamic fan control. You will have to disable (comment out or delete cron job) before the command tho, otherwise the script will overwrite your command everytime it runs again.
+> Keep " ipmitool -I lanplus -H 192.168.168.168 -U root -P calvin -y 0000000000000000000000000000000000000000 raw 0x30 0x30 0x01 0x01" ready. In case the script doesn't work properly you can quickly revert back to the original dynamic fan control. You will have to disable (comment out or delete) the cron job before the command though, otherwise the script will overwrite your command everytime it runs again.
 
 > [!TIP]
-> Not necessary to make it work, but when using the script, make sure to make it only readable by root or whoever the owner would be, as the script will contain the credentials of your IPMI user!
+> Not necessary to make it work, but when using the script, make sure to make it only readable by root or whoever the owner would be, as the script will contain the credentials of your IPMI user! You want to minimize possible exposure of your credentials.
 
 
  &nbsp; 
