@@ -87,10 +87,11 @@ The sensor choice is important, as otherwise you may monitor the wrong value and
 3) Adjsut fan speed and temparture treshold values to your likings (so the system doesn't overheat, but with comfortable fan speeds). Keep in mind that those tresholds might be different in summer and winter time.
 4) Adjust the sensor value, which is the temparature sensor value from before. Use the exact name like in the output.
 5) Save the script.
-6) Create a cron job to run at least every minute. Please keep in mind that depending on your system you may have to adjust the frequency of the job to update the fans faster. A too low value will eventually lead to overheating. Example cron job:
+6) Create a cron job to run the script. Example cron job:
 <pre>*/1 * * * * /bin/bash /root/fancontrol/setspeed.sh > /dev/null 2>&1 
 </pre>
-
+> [!CAUTION]
+> Please keep in mind that depending on your system you may have to adjust the frequency of the job to update the fans faster. A too low value will eventually lead to overheating.
 
 > [!TIP]
 > Keep " ipmitool -I lanplus -H 192.168.168.168 -U root -P calvin -y 0000000000000000000000000000000000000000 raw 0x30 0x30 0x01 0x01" ready. In case the script doesn't work properly you can quickly revert back to the original dynamic fan control.
