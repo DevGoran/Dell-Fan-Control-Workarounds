@@ -71,7 +71,9 @@ ipmitool -I lanplus -H 192.168.168.168 -U root -P calvin -y 00000000000000000000
 
 ## Workaround 2: How to use the fan speed script
 Before using the script, check which sensors are available on your system: 
-<pre>ipmitool -I lanplus -H 192.168.168.168 -U root -P calvin -y 0000000000000000000000000000000000000000 sdr type temperature</pre>
+```
+ipmitool -I lanplus -H 192.168.168.168 -U root -P calvin -y 0000000000000000000000000000000000000000 sdr type temperature
+```
 You will see something similar to the following output. In this case, the Inlet Temp is the System Board Inlet Temp and the two Temp values are the 2 CPU package temparatures:
 <pre>
 Inlet Temp       | 04h | ok  |  7.1 | 25 degrees C
