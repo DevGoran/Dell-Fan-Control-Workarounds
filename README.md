@@ -88,8 +88,7 @@ The sensor choice is important, as otherwise you may monitor the wrong value and
 4) Adjust the sensor value, which is the temparature sensor value from before. Use the exact name like in the output.
 5) Save the script.
 6) Create a cron job to run at least every minute. Please keep in mind that depending on your system you may have to adjust the frequency of the job to update the fans faster. A too low value will eventually lead to overheating.
-<pre> 
-Example cron job: */1 * * * * /bin/bash /root/fancontrol/setspeed.sh > /dev/null 2>&1 
+<pre> Example cron job: */1 * * * * /bin/bash /root/fancontrol/setspeed.sh > /dev/null 2>&1 
 </pre>
 
 
