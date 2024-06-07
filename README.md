@@ -106,10 +106,10 @@ The sensor choice is important, as otherwise you may monitor the wrong value and
 
 
 ## User Reports regarding the functionality of the commands or scripts for specific server models
-I would like to add in this section reports for server models and configuration to have some data avilable whether a method seemed to be working for specific models and their configuration. If you would like to contribute, please do the follwoing: 
+I would like to add in this section reports for server models and configuration to have some data available whether a method seemed to be working for specific models and their configuration. If you would like to contribute, please do the follwoing: 
 
 Please raise an issue with the following information: 
-1) Your setup: Server model, BIOS and iDrac FW version, components (amount of fans, HDD's, CPU(s), GOU(s) and RAM).
+1) Your setup: Server model, BIOS and iDrac FW version, components (amount of fans, HDD's, CPU(s), GPU(s) and RAM).
 2) Which method you have used to deal with the fan speed.
 3) How well it worked.
 4) For how long you tested the methods (please test minimum a week with different workloads)
