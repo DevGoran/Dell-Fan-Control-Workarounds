@@ -104,9 +104,25 @@ The sensor choice is important, as otherwise you may monitor the wrong value and
   &nbsp; &nbsp;
    &nbsp;
 
+
+## User Reports regarding the funcitnally of the commands or scripts
+I would like to add in this section reports for server models and configuration to have some data avilable whether a method seemed to be working for specific models and their configuration. If you would like to contribute, please do the follwoing: 
+
+Please raise an issue with the following information: 
+1) Your setup: Server model, BIOS and iDrac FW version, components (amount of fans, HDD's, CPU(s), GOU(s) and RAM).
+2) Which method you have used to deal with the fan speed.
+3) How well it worked.
+
+
+
  &nbsp; 
   &nbsp; &nbsp;
    &nbsp;
+
+ &nbsp; 
+  &nbsp; &nbsp;
+   &nbsp;
+
 
 ## Sources
 - https://community.spiceworks.com/t/dell-poweredge-server-r7xx-series-fan-speed-with-gpu/350434/44
