@@ -5,7 +5,7 @@ The systems default fan behavior for 3rd party PCI cards is assuming the highest
 | # | Workaround | $${\color{green}PROS}$$ | $${\color{red}CONS}$$ |
 |---|------------|------|------|
 | 1 | Disable 3rd party card behaviour | You do not have to use any scripts or similar. The system will still hanlde the fans dynamically. | Undocumented feature and therefore not supported by Dell. This may damage your system. The fans may still spin at  higher rpms (let's say 35% instead of 20%). |
-| 2 | Use a fan speed control script   | You can set the fan speeds yourself with the script and therefore can have a quieter system than with the dynamic fan control. | Undocumented feature and therefore not supported by Dell. This may damage your system. You have to make sure to use the proper values in the script, otherwise your system may overheat. You're dependend on not just the script, but also the cron job.     |
+| 2 | Use a fan speed control script   | You can set the fan speeds yourself with the script and therefore can have a quieter system than with the dynamic fan control. | Undocumented feature and therefore not supported by Dell. This may damage your system. You have to make sure to use the proper values in the script, otherwise your system may overheat. You're dependent on not just the script, but also the cron job.     |
 
 
 
