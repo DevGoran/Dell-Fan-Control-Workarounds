@@ -35,7 +35,7 @@ The systems default fan behavior for 3rd party PCI cards is assuming the highest
 6) On your host ipmitool is installed (apt-get update && apt-get install ipmitool)
 
 > [!NOTE]
-> We will be using the following credentials in every command and script: root, calvin and 0000000000000000000000000000000000000000 for encryption key. Demo IP will be 192.168.168.168. Make sure to use the right values and credentials for your system.
+> We will be using the following credentials in every command and script: root and calvin for credentials and 0000000000000000000000000000000000000000 for encryption key. Demo IP will be 192.168.168.168. Make sure to use the right values and credentials for your system.
 
  
  &nbsp; 
