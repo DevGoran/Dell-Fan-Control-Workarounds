@@ -37,12 +37,39 @@ The systems default fan behavior for 3rd party PCI cards is assuming the highest
 > [!NOTE]
 > We will be using the following credentials in every command and script: root and calvin for credentials and 0000000000000000000000000000000000000000 for encryption key. Demo IP will be 192.168.168.168. Make sure to use the right values and credentials for your system.
 
+ &nbsp; 
+  &nbsp; &nbsp;
+   &nbsp;
+
+## Workaround 2: Disabling the default fan behaviour
+Check if the default fan bevaiour is enabled or disabled by using following raw command:
+```
+ipmitool -I lanplus -H 192.168.168.168 -U root -P calvin -y 0000000000000000000000000000000000000000 raw 0x30 0xce 0x01 0x16 0x05 0x00 0x00 0x00
+```
+
+The response will tell you whether it is enabled or disabled.
+<pre>
+Disabled response: 16 05 00 00 00 05 00 01 00 00
+Enabled response:  ﻿16 05 00 00 00 05 00 00 00 00
+</pre>
+
+We can then enable or disable this behaviour with follwoing commands:
+
+Disable: 
+```
+ipmitool -I lanplus -H 192.168.168.168 -U root -P calvin -y 0000000000000000000000000000000000000000 raw 0x30 0xce 0x00 0x16 0x05 0x00 0x00 0x00 0x05 0x00 0x01 0x00 0x00
+```
+Enable:
+```
+ipmitool -I lanplus -H 192.168.168.168 -U root -P calvin -y 0000000000000000000000000000000000000000 raw 0x30 0xce 0x00 0x16 0x05 0x00 0x00 0x00 0x05 0x00 0x00 0x00 0x00
+```
+
  
  &nbsp; 
   &nbsp; &nbsp;
    &nbsp;
 
-## How to use the fan speed script
+## Workaround 1: How to use the fan speed script
 Before using the script, check which sensors are available on your system: 
 <pre>ipmitool -I lanplus -H 192.168.168.168 -U root -P calvin -y 0000000000000000000000000000000000000000 sdr type temperature</pre>
 You will see something similar to the following output. In this case, the Inlet Temp is the System Board Inlet Temp and the two Temp values are the 2 CPU package temparatures:
@@ -67,33 +94,6 @@ The sensor choice is important, as otherwise you may monitor the wrong value and
 
 > [!TIP]
 > Not necessary to make it work, but when using the script, make sure to make it only readable by root or whoever the owner would be, as the script will contain the credentials of your IPMI user!
-
- &nbsp; 
-  &nbsp; &nbsp;
-   &nbsp;
-
-## Disabling the default fan behaviour
-Check if the default fan bevaiour is enabled or disabled by using following raw command:
-```
-ipmitool -I lanplus -H 192.168.168.168 -U root -P calvin -y 0000000000000000000000000000000000000000 raw 0x30 0xce 0x01 0x16 0x05 0x00 0x00 0x00
-```
-
-The response will tell you whether it is enabled or disabled.
-<pre>
-Disabled response: 16 05 00 00 00 05 00 01 00 00
-Enabled response:  ﻿16 05 00 00 00 05 00 00 00 00
-</pre>
-
-We can then enable or disable this behaviour with follwoing commands:
-
-Disable: 
-```
-ipmitool -I lanplus -H 192.168.168.168 -U root -P calvin -y 0000000000000000000000000000000000000000 raw 0x30 0xce 0x00 0x16 0x05 0x00 0x00 0x00 0x05 0x00 0x01 0x00 0x00
-```
-Enable:
-```
-ipmitool -I lanplus -H 192.168.168.168 -U root -P calvin -y 0000000000000000000000000000000000000000 raw 0x30 0xce 0x00 0x16 0x05 0x00 0x00 0x00 0x05 0x00 0x00 0x00 0x00
-```
 
 
  &nbsp; 
