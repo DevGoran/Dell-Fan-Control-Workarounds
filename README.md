@@ -1,7 +1,7 @@
 # Dell T630 Fan Control
 
 ## Introduction
-The systems default fan behavior for 3rd party cards is assuming the highest thermal load and therefore increases the fan speed significantly. There are 2 ways to deal with this:
+The systems default fan behavior for 3rd party PCI cards is assuming the highest thermal load and therefore increases the fan speed significantly. There are 2 ways to deal with this:
 | # | Workaround | $${\color{green}PROS}$$ | $${\color{red}CONS}$$ |
 |---|------------|------|------|
 | 1 | Disable 3rd party card behaviour | You do not have to use any scripts or similar. The system will still hanlde the fans dynamically. | Undocumented feature and therefore not supported by Dell. This may damage your system. The fans may still spin at  higher rpms (let's say 35% instead of 20%). |
