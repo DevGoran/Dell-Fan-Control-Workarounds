@@ -15,7 +15,7 @@ The systems default fan behavior for 3rd party PCI cards is assuming the highest
 
 ## Disclaimers
 > [!NOTE]
-> Tested on Dell T630 with 2 fans, BIOS version 2.19.0 and iDrac version FW 2.86.86.86.
+> Tested on Dell T630 with 2 fans, BIOS version 2.19.0 and iDrac version FW 2.86.86.86. Commands seem to work but no long-term study on the effects done, yet.
 
 > [!CAUTION]
 > The script has been optimized for my personal setup and should be customized before being used on other systems.
