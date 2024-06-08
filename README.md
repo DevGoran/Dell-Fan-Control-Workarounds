@@ -106,13 +106,13 @@ The sensor choice is important, as otherwise you may monitor the wrong value and
 
 
 ## User Reports regarding the functionality of the commands or scripts for specific server models
-I would like to add in this section reports for server models and configuration to have some data available whether a method seemed to be working for specific models and their configuration. If you would like to contribute, please do the follwoing: 
-
-Please raise an issue with the following information: 
-1) Your setup: Server model, BIOS and iDrac FW version, components (amount of fans, HDD's, CPU(s), GPU(s) and RAM).
-2) Which method you have used to deal with the fan speed.
-3) How well it worked.
-4) For how long you tested the methods (please test minimum a week with different workloads)
+If you would like to share your experience and results, please follow these steps:
+1) Chekc whether there is a discussion titled "Dell *insert server model* Fan Control Report"
+2) If there is already a discussion, feel free to contribute your experence in the one that already exists. If there is no discussion yet available, please create a new one with at least the following ifnormation:
+   - Your setup: Server model, BIOS and iDrac FW version, components (amount of fans, HDD's, CPU(s), GPU(s) and RAM).
+   - Which method you have used to deal with the fan speed.
+   - How well it worked.
+   - For how long you tested the methods (please test minimum one week with different workloads)
 
 
 
