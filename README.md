@@ -105,10 +105,10 @@ The sensor choice is important, as otherwise you may monitor the wrong value and
    &nbsp;
 
 
-## User Reports regarding the functionality of the commands or scripts for specific server models
+## User Reports for specific server models
 If you would like to share your experience and results, please follow these steps:
-1) Chekc whether there is a discussion titled "Dell *insert server model* Fan Control Report"
-2) If there is already a discussion, feel free to contribute your experence in the one that already exists. If there is no discussion yet available, please create a new one with at least the following ifnormation:
+1) Check whether there is a discussion titled "Dell *insert server model* Fan Control Report"
+2) If there is already a discussion, feel free to contribute your experence in the one that already exists. If there is no discussion available yet, please create a new one called "Dell *insert server model* Fan Control Report" with at least the following ifnormation:
    - Your setup: Server model, BIOS and iDrac FW version, components (amount of fans, HDD's, CPU(s), GPU(s) and RAM).
    - Which method you have used to deal with the fan speed.
    - How well it worked.
@@ -125,7 +125,7 @@ If you would like to share your experience and results, please follow these step
    &nbsp;
 
 
-## Sources
+## Sources worth mentioning
 - https://community.spiceworks.com/t/dell-poweredge-server-r7xx-series-fan-speed-with-gpu/350434/44
 - https://github.com/Jono-Moss/R710-IPMI-Fan-Speed-Script/tree/main
 - https://www.youtube.com/watch?v=3yJYq0PEhTw
