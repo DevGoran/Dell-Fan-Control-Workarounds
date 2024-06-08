@@ -1,7 +1,7 @@
-# Dell T630 Fan Control
+# Dell Fan Control Workarounds
 
 ## Introduction
-The systems default fan behavior for 3rd party PCI cards is assuming the highest thermal load and therefore increases the fan speed significantly. There are 2 ways to deal with this:
+The systems default fan behavior for 3rd party PCI cards is assuming the highest thermal load and therefore increases the fan speed significantly. Information reagrding this is scattered around the web and needs some time to be found and understood. This guide should help you solving the issue in a much faster and safer way. There are 2 ways to deal with this:
 | # | Workaround | $${\color{green}PROS}$$ | $${\color{red}CONS}$$ |
 |---|------------|------|------|
 | 1 | Disable 3rd party card behaviour | You do not have to use any scripts or similar. The system will still hanlde the fans dynamically. | Undocumented feature and therefore not supported by Dell. This may damage your system. The fans may still spin at  higher rpms (let's say 35% instead of 20%). |
@@ -107,8 +107,8 @@ The sensor choice is important, as otherwise you may monitor the wrong value and
 
 ## User Reports for specific server models
 If you would like to share your experience and results, please follow these steps:
-1) Check whether there is a discussion titled "Dell *insert server model* Fan Control Report"
-2) If there is already a discussion, feel free to contribute your experence in the one that already exists. If there is no discussion available yet, please create a new one called "Dell *insert server model* Fan Control Report" with at least the following ifnormation:
+1) Check whether there is a discussion titled "Dell $insert server model$ Fan Control Report"
+2) If there is already a discussion, feel free to contribute your experence in the one that already exists. If there is no discussion available yet, please create a new one called "Dell $insert server model$ Fan Control Report" with at least the following information:
    - Your setup: Server model, BIOS and iDrac FW version, components (amount of fans, HDD's, CPU(s), GPU(s) and RAM).
    - Which method you have used to deal with the fan speed.
    - How well it worked.
