@@ -115,6 +115,8 @@ If you would like to share your experience and results, please follow these step
    - For how long you tested the methods (please test minimum one week with different workloads)
 
 
+You will also find a script called fancontrolstats, which will save following values to a csv: timestamp of execution, cpu utilization, fan speeds and temparatures. You can set up a cron job and then after a while check the values or even create a graph with it. Make sure to adjust the credentials in the script.
+
 
  &nbsp; 
   &nbsp; &nbsp;
